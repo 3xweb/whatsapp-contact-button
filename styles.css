@@ -1,0 +1,63 @@
+.whatsapp-contact-button {
+  position: fixed;
+  right: calc(var(--bwb-offset-inline, 24px) + env(safe-area-inset-right, 0px));
+  bottom: calc(var(--bwb-offset-block, 24px) + env(safe-area-inset-bottom, 0px));
+  z-index: var(--bwb-z-index, 50);
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  width: var(--bwb-size, 60px);
+  height: var(--bwb-size, 60px);
+  border-radius: 50%;
+  background: var(--bwb-background, #25d366);
+  color: var(--bwb-color, #102b1b);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 28%);
+  text-decoration: none;
+}
+
+.whatsapp-contact-button:where([data-position="bottom-left"], [data-position="top-left"]) {
+  right: auto;
+  left: calc(var(--bwb-offset-inline, 24px) + env(safe-area-inset-left, 0px));
+}
+
+.whatsapp-contact-button:where([data-position="top-left"], [data-position="top-right"]) {
+  bottom: auto;
+  top: calc(var(--bwb-offset-block, 24px) + env(safe-area-inset-top, 0px));
+}
+
+.whatsapp-contact-button:hover {
+  background: var(--bwb-hover-background, #38e279);
+}
+
+.whatsapp-contact-button:focus-visible {
+  outline: 3px solid #102b1b;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px white, 0 0 0 8px white;
+}
+
+.whatsapp-contact-button svg {
+  width: var(--bwb-icon-size, 34px);
+  height: var(--bwb-icon-size, 34px);
+}
+
+.whatsapp-contact-button::after {
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--bwb-wave-color, var(--bwb-background, #25d366));
+  border-radius: inherit;
+  pointer-events: none;
+  content: '';
+  animation: whatsapp-contact-button-wave 1.8s ease-out 3;
+}
+
+@keyframes whatsapp-contact-button-wave {
+  0% { opacity: 0.8; transform: scale(1); }
+  75%, 100% { opacity: 0; transform: scale(1.45); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-contact-button::after {
+    animation: none;
+    content: none;
+  }
+}

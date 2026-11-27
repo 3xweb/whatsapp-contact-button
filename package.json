@@ -1,0 +1,27 @@
+{
+  "name": "@3xweb/whatsapp-contact-button",
+  "version": "1.0.0",
+  "description": "An accessible floating WhatsApp contact button for React.",
+  "type": "module",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    },
+    "./styles.css": "./styles.css"
+  },
+  "sideEffects": ["*.css"],
+  "files": ["index.js", "index.d.ts", "styles.css"],
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0"
+  },
+  "author": "3X Web",
+  "license": "MIT",
+  "keywords": ["react", "whatsapp", "click-to-chat", "floating-button"],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
